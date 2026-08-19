@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Suhail's personal portfolio website. Computer Science student and Cyber Security enthusiast.">
+  <title>Suhail | Cyber Security Student</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cursor-glow"></div>
+
+  <header class="navbar">
+    <a class="logo" href="#home">&lt;Suhail<span>/&gt;</span></a>
+    <button class="menu-btn" aria-label="Open menu">☰</button>
+    <nav class="nav-links">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">☾</button>
+  </header>
+
+  <main>
+    <section id="home" class="hero section">
+      <div class="hero-content reveal">
+        <p class="eyebrow"><span class="dot"></span> Available for learning &amp; building</p>
+        <h1>Hi, I'm <span>Suhail</span>.<br>Cyber Security <em>Enthusiast.</em></h1>
+        <p class="hero-text">
+          I'm a Computer Science student passionate about cybersecurity, programming,
+          gaming technology and creating digital projects.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn primary">View My Work <span>↗</span></a>
+          <a href="#contact" class="btn secondary">Let's Connect</a>
+        </div>
+        <div class="quick-stats">
+          <div><strong>01</strong><span>Student</span></div>
+          <div><strong>02</strong><span>Cyber Security</span></div>
+          <div><strong>03</strong><span>Builder</span></div>
+        </div>
+      </div>
+
+      <div class="hero-card reveal">
+        <div class="profile-ring">
+          <div class="profile-placeholder">S</div>
+        </div>
+        <div class="terminal">
+          <div class="terminal-bar"><span></span><span></span><span></span></div>
+          <p><b>~/suhail</b> <span>$ whoami</span></p>
+          <p class="terminal-green">Computer Science Student</p>
+          <p><b>~/suhail</b> <span>$ focus</span></p>
+          <p class="terminal-green">Cyber Security + Code</p>
+          <p><b>~/suhail</b> <span>$ status</span></p>
+          <p class="terminal-green">● Learning &amp; Building</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">01 / ABOUT</p>
+        <h2>A little about <span>me.</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-copy reveal">
+          <p class="lead">I'm Suhail, a Computer Science student with a growing interest in Cyber Security and technology.</p>
+          <p>I enjoy learning how software and systems work, experimenting with code, and turning ideas into useful digital projects. I'm especially interested in cybersecurity, programming, game technology and building things from scratch.</p>
+          <p>My goal is to keep improving my technical skills, build real-world projects and eventually work on challenging technology problems.</p>
+        </div>
+        <div class="about-facts reveal">
+          <div class="fact"><span>🎓</span><div><small>Currently studying</small><strong>BSc Computer Science (Cyber Security)</strong></div></div>
+          <div class="fact"><span>📍</span><div><small>Campus</small><strong>VELS University, Thiruvanmiyur</strong></div></div>
+          <div class="fact"><span>💻</span><div><small>Interested in</small><strong>Cyber Security • Programming • AI</strong></div></div>
+          <div class="fact"><span>🎮</span><div><small>Also enjoy</small><strong>Gaming • Game Servers • YouTube</strong></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section alt">
+      <div class="section-heading reveal">
+        <p class="eyebrow">02 / SKILLS</p>
+        <h2>Things I'm <span>learning.</span></h2>
+      </div>
+      <div class="skills-grid">
+        <article class="skill-card reveal"><div class="skill-icon">&lt;/&gt;</div><h3>Programming</h3><p>Building a strong foundation in programming, problem solving and software development.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Programming</span></div></article>
+        <article class="skill-card reveal"><div class="skill-icon">⌁</div><h3>Cyber Security</h3><p>Learning security concepts, networking, systems, vulnerabilities and defensive practices.</p><div class="tags"><span>Networking</span><span>Linux</span><span>Security</span><span>CTF</span></div></article>
+        <article class="skill-card reveal"><div class="skill-icon">◈</div><h3>Creative Tech</h3><p>Interested in game servers, digital content, UI ideas and creating projects for the web.</p><div class="tags"><span>Game Servers</span><span>UI</span><span>Content</span></div></article>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">03 / PROJECTS</p>
+        <h2>What I'm <span>building.</span></h2>
+      </div>
+      <div class="projects-grid">
+        <article class="project-card reveal">
+          <div class="project-number">01</div>
+          <div><p class="project-type">WEB PROJECT</p><h3>Personal Portfolio</h3><p>A responsive personal website to showcase my journey, skills and projects.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></div>
+          <a href="#contact" class="project-link">View project ↗</a>
+        </article>
+        <article class="project-card reveal">
+          <div class="project-number">02</div>
+          <div><p class="project-type">GAME SERVER</p><h3>Roleplay Server Projects</h3><p>Experimenting with multiplayer roleplay server scripting, systems, maps and gameplay features.</p><div class="tags"><span>Pawn</span><span>Scripting</span><span>Game Dev</span></div></div>
+          <a href="#contact" class="project-link">Learn more ↗</a>
+        </article>
+        <article class="project-card reveal">
+          <div class="project-number">03</div>
+          <div><p class="project-type">COMING SOON</p><h3>Cyber Security Lab</h3><p>A future collection of security learning projects, experiments and write-ups.</p><div class="tags"><span>Security</span><span>Linux</span><span>Networking</span></div></div>
+          <a href="#contact" class="project-link">Coming soon →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="education" class="section alt">
+      <div class="section-heading reveal">
+        <p class="eyebrow">04 / EDUCATION</p>
+        <h2>My learning <span>journey.</span></h2>
+      </div>
+      <div class="timeline reveal">
+        <div class="timeline-item"><span class="timeline-dot"></span><div><small>2026 — Present</small><h3>BSc Computer Science (Cyber Security)</h3><p>VELS University, Thiruvanmiyur, Chennai</p><span class="status">Currently studying</span></div></div>
+        <div class="timeline-item"><span class="timeline-dot"></span><div><small>Completed</small><h3>Higher Secondary Education</h3><p>Completed 12th standard with a focus including Computer Science.</p></div></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <div class="contact-box reveal">
+        <p class="eyebrow">05 / CONTACT</p>
+        <h2>Let's build something <span>great.</span></h2>
+        <p>Have an idea, project or opportunity? I'd love to hear about it.</p>
+        <div class="contact-buttons">
+          <a class="btn primary" href="mailto:your.email@example.com">Email Me ↗</a>
+          <a class="btn secondary" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="btn secondary" href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <p class="edit-note">Replace the email, LinkedIn and GitHub links in <code>index.html</code> with your real accounts.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="logo">&lt;Suhail<span>/&gt;</span></div>
+    <p>Designed &amp; built by Suhail · <span id="year"></span></p>
+    <a href="#home">Back to top ↑</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
