@@ -1,158 +1,1255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Suhail's personal portfolio website. Computer Science student and Cyber Security enthusiast.">
-  <title>Suhail | Cyber Security Student</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Suhail — Cyber Security Student & Developer</title>
+
+<meta name="description"
+content="Portfolio of S. Mohamed Suhail — Computer Science student, Cyber Security learner and developer building web projects, Discord bots and SA-MP systems.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+    --bg:#08090b;
+    --surface:#0e1013;
+    --surface2:#13161a;
+    --border:#24282e;
+    --text:#f3f4f6;
+    --muted:#8c929b;
+    --accent:#d7ff45;
+    --accent-dark:#a7cc18;
+    --max:1150px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:Inter,Arial,sans-serif;
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.container{
+    width:min(var(--max), calc(100% - 40px));
+    margin:auto;
+}
+
+/* NAV */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:100;
+    background:rgba(8,9,11,.86);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.nav-inner{
+    height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-weight:800;
+    letter-spacing:-.04em;
+    font-size:20px;
+}
+
+.logo span{
+    color:var(--accent);
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:var(--muted);
+    font-size:14px;
+    transition:.2s;
+}
+
+.nav-links a:hover{
+    color:var(--text);
+}
+
+.menu{
+    display:none;
+    background:none;
+    border:0;
+    color:white;
+    font-size:24px;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:72px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-grid{
+    position:absolute;
+    inset:0;
+    opacity:.14;
+    background-image:
+        linear-gradient(var(--border) 1px,transparent 1px),
+        linear-gradient(90deg,var(--border) 1px,transparent 1px);
+    background-size:60px 60px;
+    mask-image:linear-gradient(to bottom,black,transparent 80%);
+}
+
+.hero-content{
+    position:relative;
+    max-width:850px;
+}
+
+.eyebrow{
+    font-family:"DM Mono",monospace;
+    color:var(--accent);
+    font-size:13px;
+    margin-bottom:22px;
+}
+
+.hero h1{
+    font-size:clamp(48px,8vw,92px);
+    line-height:.96;
+    letter-spacing:-.07em;
+    max-width:900px;
+}
+
+.hero h1 .outline{
+    color:transparent;
+    -webkit-text-stroke:1px #555b64;
+}
+
+.hero-text{
+    margin-top:30px;
+    color:var(--muted);
+    max-width:650px;
+    font-size:17px;
+}
+
+.hero-actions{
+    display:flex;
+    gap:12px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border:1px solid var(--border);
+    border-radius:7px;
+    font-size:14px;
+    font-weight:600;
+    transition:.2s;
+}
+
+.btn-primary{
+    background:var(--accent);
+    color:#101207;
+    border-color:var(--accent);
+}
+
+.btn-primary:hover{
+    background:var(--accent-dark);
+}
+
+.btn-secondary:hover{
+    border-color:#555b64;
+    background:var(--surface);
+}
+
+.status{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    margin-top:45px;
+    color:var(--muted);
+    font-family:"DM Mono",monospace;
+    font-size:12px;
+}
+
+.status-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#86efac;
+}
+
+/* SECTIONS */
+
+section{
+    padding:110px 0;
+    border-top:1px solid var(--border);
+}
+
+.section-head{
+    display:grid;
+    grid-template-columns:200px 1fr;
+    gap:40px;
+    margin-bottom:55px;
+}
+
+.section-number{
+    font-family:"DM Mono",monospace;
+    color:var(--accent);
+    font-size:13px;
+}
+
+.section-title{
+    font-size:clamp(30px,5vw,52px);
+    letter-spacing:-.05em;
+    line-height:1;
+}
+
+.section-intro{
+    color:var(--muted);
+    margin-top:18px;
+    max-width:650px;
+}
+
+/* ABOUT */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:80px;
+}
+
+.about-text{
+    color:#b5bac2;
+    font-size:17px;
+}
+
+.about-text p + p{
+    margin-top:20px;
+}
+
+.quick-info{
+    border-left:1px solid var(--border);
+    padding-left:30px;
+}
+
+.info-item{
+    padding:18px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.info-label{
+    color:var(--muted);
+    font-family:"DM Mono",monospace;
+    font-size:11px;
+    text-transform:uppercase;
+}
+
+.info-value{
+    margin-top:5px;
+    font-size:15px;
+}
+
+/* EDUCATION */
+
+.education{
+    border:1px solid var(--border);
+    background:var(--surface);
+    padding:35px;
+    display:grid;
+    grid-template-columns:150px 1fr auto;
+    gap:30px;
+    align-items:start;
+}
+
+.education-year{
+    font-family:"DM Mono",monospace;
+    color:var(--accent);
+    font-size:13px;
+}
+
+.education h3{
+    font-size:22px;
+    margin-bottom:7px;
+}
+
+.education p{
+    color:var(--muted);
+}
+
+.education-tag{
+    border:1px solid var(--border);
+    padding:6px 10px;
+    font-size:11px;
+    font-family:"DM Mono",monospace;
+    color:var(--muted);
+}
+
+/* PROJECTS */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+}
+
+.project{
+    background:var(--surface);
+    border:1px solid var(--border);
+    padding:30px;
+    min-height:310px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    transition:.25s;
+}
+
+.project:hover{
+    transform:translateY(-5px);
+    border-color:#4b5159;
+}
+
+.project-top{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.project-number{
+    font-family:"DM Mono",monospace;
+    color:#5f6670;
+    font-size:12px;
+}
+
+.project-arrow{
+    color:var(--accent);
+    font-size:20px;
+}
+
+.project h3{
+    font-size:25px;
+    letter-spacing:-.03em;
+    margin:30px 0 10px;
+}
+
+.project p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.tags{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
+
+.tag{
+    font-family:"DM Mono",monospace;
+    font-size:10px;
+    border:1px solid var(--border);
+    padding:5px 8px;
+    color:#aeb4bd;
+}
+
+/* SKILLS */
+
+.skill-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border-top:1px solid var(--border);
+    border-left:1px solid var(--border);
+}
+
+.skill{
+    padding:28px;
+    border-right:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+}
+
+.skill small{
+    color:var(--accent);
+    font-family:"DM Mono",monospace;
+    font-size:10px;
+}
+
+.skill h3{
+    margin:9px 0;
+    font-size:18px;
+}
+
+.skill p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* JOURNEY */
+
+.timeline{
+    border-left:1px solid var(--border);
+    margin-left:10px;
+}
+
+.timeline-item{
+    position:relative;
+    padding:0 0 45px 35px;
+}
+
+.timeline-item::before{
+    content:"";
+    position:absolute;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--accent);
+    left:-4px;
+    top:7px;
+}
+
+.timeline-date{
+    color:var(--accent);
+    font-family:"DM Mono",monospace;
+    font-size:11px;
+}
+
+.timeline h3{
+    margin:7px 0;
+    font-size:20px;
+}
+
+.timeline p{
+    color:var(--muted);
+    max-width:650px;
+    font-size:14px;
+}
+
+/* CONTACT */
+
+.contact-box{
+    border:1px solid var(--border);
+    background:var(--surface);
+    padding:55px;
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+    gap:40px;
+}
+
+.contact-box h2{
+    font-size:clamp(35px,5vw,60px);
+    letter-spacing:-.05em;
+    line-height:1;
+}
+
+.contact-box p{
+    color:var(--muted);
+    max-width:500px;
+    margin-top:18px;
+}
+
+.socials{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.social{
+    border:1px solid var(--border);
+    padding:11px 15px;
+    font-size:13px;
+}
+
+.social:hover{
+    border-color:var(--accent);
+    color:var(--accent);
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid var(--border);
+    padding:25px 0;
+    color:#666d76;
+    font-family:"DM Mono",monospace;
+    font-size:11px;
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .hero{
+        min-height:90vh;
+    }
+
+    .section-head{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+
+    .education{
+        grid-template-columns:1fr;
+    }
+
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    .skill-grid{
+        grid-template-columns:1fr;
+    }
+
+    .contact-box{
+        padding:35px;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+    }
+}
+</style>
 </head>
+
 <body>
-  <div class="cursor-glow"></div>
 
-  <header class="navbar">
-    <a class="logo" href="#home">&lt;Suhail<span>/&gt;</span></a>
-    <button class="menu-btn" aria-label="Open menu">☰</button>
-    <nav class="nav-links">
-      <a href="#home" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">☾</button>
-  </header>
+<!-- NAV -->
 
-  <main>
-    <section id="home" class="hero section">
-      <div class="hero-content reveal">
-        <p class="eyebrow"><span class="dot"></span> Available for learning &amp; building</p>
-        <h1>Hi, I'm <span>Suhail</span>.<br>Cyber Security <em>Enthusiast.</em></h1>
-        <p class="hero-text">
-          I'm a Computer Science student passionate about cybersecurity, programming,
-          gaming technology and creating digital projects,
-          I have experience in SAMP developing.
-        </p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn primary">View My Work <span>↗</span></a>
-          <a href="#contact" class="btn secondary">Let's Connect</a>
-        </div>
-        <div class="quick-stats">
-          <div><strong>01</strong><span>Student</span></div>
-          <div><strong>02</strong><span>Cyber Security</span></div>
-          <div><strong>03</strong><span>Builder</span></div>
-        </div>
-      </div>
+<nav>
+<div class="container nav-inner">
 
-      <div class="hero-card reveal">
-        <div class="profile-ring">
-          <div class="profile-placeholder">S</div>
-        </div>
-        <div class="terminal">
-          <div class="terminal-bar"><span></span><span></span><span></span></div>
-          <p><b>~/suhail</b> <span>$ whoami</span></p>
-          <p class="terminal-green">Computer Science Student</p>
-          <p><b>~/suhail</b> <span>$ focus</span></p>
-          <p class="terminal-green">Cyber Security + Code</p>
-          <p><b>~/suhail</b> <span>$ status</span></p>
-          <p class="terminal-green">● Learning &amp; Building</p>
-        </div>
-      </div>
-    </section>
+<a href="#" class="logo">SUHAIL<span>.</span></a>
 
-    <section id="about" class="section">
-      <div class="section-heading reveal">
-        <p class="eyebrow">01 / ABOUT</p>
-        <h2>A little about <span>me.</span></h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-copy reveal">
-          <p class="lead">I'm Mohamed Suhail, a Computer Science student with a growing interest in Cyber Security and technology.</p>
-          <p>I enjoy learning how software and systems work, experimenting with code, and turning ideas into useful digital projects. I'm especially interested in cybersecurity, programming, game technology and building things from scratch.</p>
-          <p>My goal is to keep improving my technical skills, build real-world projects and eventually work on challenging technology problems.</p>
-        </div>
-        <div class="about-facts reveal">
-          <div class="fact"><span>🎓</span><div><small>Currently studying</small><strong>BSc Computer Science (Cyber Security)</strong></div></div>
-          <div class="fact"><span>📍</span><div><small>Campus</small><strong>VELS University, Thiruvanmiyur</strong></div></div>
-          <div class="fact"><span>💻</span><div><small>Interested in</small><strong>Cyber Security • Programming • AI</strong></div></div>
-          <div class="fact"><span>🎮</span><div><small>Also enjoy</small><strong>Gaming • Game Servers • YouTube</strong></div></div>
-        </div>
-      </div>
-    </section>
+<ul class="nav-links">
+<li><a href="#about">About</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#journey">Journey</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 
-    <section id="skills" class="section alt">
-      <div class="section-heading reveal">
-        <p class="eyebrow">02 / SKILLS</p>
-        <h2>Things I'm <span>learning.</span></h2>
-      </div>
-      <div class="skills-grid">
-        <article class="skill-card reveal"><div class="skill-icon">&lt;/&gt;</div><h3>Programming</h3><p>Building a strong foundation in programming, problem solving and software development.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Programming</span></div></article>
-        <article class="skill-card reveal"><div class="skill-icon">⌁</div><h3>Cyber Security</h3><p>Learning security concepts, networking, systems, vulnerabilities and defensive practices.</p><div class="tags"><span>Networking</span><span>Linux</span><span>Security</span><span>CTF</span></div></article>
-        <article class="skill-card reveal"><div class="skill-icon">◈</div><h3>Creative Tech</h3><p>Interested in game servers, digital content, UI ideas and creating projects for the web.</p><div class="tags"><span>Game Servers</span><span>UI</span><span>Content</span></div></article>
-      </div>
-    </section>
+<button class="menu">☰</button>
 
-    <section id="projects" class="section">
-      <div class="section-heading reveal">
-        <p class="eyebrow">03 / PROJECTS</p>
-        <h2>What I'm <span>building.</span></h2>
-      </div>
-      <div class="projects-grid">
-        <article class="project-card reveal">
-          <div class="project-number">01</div>
-          <div><p class="project-type">WEB PROJECT</p><h3>Personal Portfolio</h3><p>A responsive personal website to showcase my journey, skills and projects.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div></div>
-          <a href="#contact" class="project-link">View project ↗</a>
-        </article>
-        <article class="project-card reveal">
-          <div class="project-number">02</div>
-          <div><p class="project-type">GAME SERVER</p><h3>Roleplay Server Projects</h3><p>Experimenting with multiplayer roleplay server scripting, systems, maps and gameplay features.</p><div class="tags"><span>Pawn</span><span>Scripting</span><span>Game Dev</span></div></div>
-          <a href="#contact" class="project-link">Learn more ↗</a>
-        </article>
-        <article class="project-card reveal">
-          <div class="project-number">03</div>
-          <div><p class="project-type">COMING SOON</p><h3>Cyber Security Lab</h3><p>A future collection of security learning projects, experiments and write-ups.</p><div class="tags"><span>Security</span><span>Linux</span><span>Networking</span></div></div>
-          <a href="#contact" class="project-link">Coming soon →</a>
-        </article>
-      </div>
-    </section>
+</div>
+</nav>
 
-    <section id="education" class="section alt">
-      <div class="section-heading reveal">
-        <p class="eyebrow">04 / EDUCATION</p>
-        <h2>My learning <span>journey.</span></h2>
-      </div>
-      <div class="timeline reveal">
-        <div class="timeline-item"><span class="timeline-dot"></span><div><small>2026 — Present</small><h3>BSc Computer Science (Cyber Security)</h3><p>VELS University, Thiruvanmiyur, Chennai</p><span class="status">Currently studying</span></div></div>
-        <div class="timeline-item"><span class="timeline-dot"></span><div><small>Completed</small><h3>Higher Secondary Education</h3><p>Completed 12th standard with a focus including Computer Science.</p></div></div>
-      </div>
-    </section>
 
-    <section id="contact" class="section contact-section">
-      <div class="contact-box reveal">
-        <p class="eyebrow">05 / CONTACT</p>
-        <h2>Let's build something <span>great.</span></h2>
-        <p>Have an idea, project or opportunity? I'd love to hear about it.</p>
-        <div class="contact-buttons">
-          <a class="btn primary" href="mailto:snsuhail19@gmail.com">Email Me ↗</a>
-          <a class="btn secondary" href="https://www.linkedin.com/in/mohamed-suhail-1254a1429" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a class="btn secondary" href="https://www.instagram.com/suhail.s_.19?igsh=MWFlOGQ4dmd5dm9nMQ==&igsi=MWFlOGQ4dmd5dm9nMQ==" target="_blank" rel="noopener">Instagram ↗</a>
-         <a class="btn secondary" href="https://www.facebook.com/share/17dsFFoM8J/" target="_blank" rel="noopener">Facebook ↗</a>
-        </div>
-        <p class="edit-note">email, LinkedIn and GitHub links in <code>index.html</code> with your real accounts.</p>
-      </div>
-    </section>
-  </main>
+<!-- HERO -->
 
-  <footer>
-    <div class="logo">&lt;Suhail<span>/&gt;</span></div>
-    <p>Designed &amp; built by Suhail · <span id="year"></span></p>
-    <a href="#home">Back to top ↑</a>
-  </footer>
+<header class="hero">
 
-  <script src="script.js"></script>
+<div class="hero-grid"></div>
+
+<div class="container">
+<div class="hero-content">
+
+<div class="eyebrow">
+/ COMPUTER SCIENCE × CYBER SECURITY
+</div>
+
+<h1>
+I build things<br>
+<span class="outline">on the internet.</span>
+</h1>
+
+<p class="hero-text">
+I'm S. Mohamed Suhail — a Computer Science student exploring
+Cyber Security, web development, automation, Discord systems,
+server projects and software development.
+</p>
+
+<div class="hero-actions">
+
+<a href="#projects" class="btn btn-primary">
+View my work →
+</a>
+
+<a href="#contact" class="btn btn-secondary">
+Get in touch
+</a>
+
+</div>
+
+<div class="status">
+<span class="status-dot"></span>
+Currently learning, building & experimenting
+</div>
+
+</div>
+</div>
+
+</header>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="section-number">01 / ABOUT</div>
+
+<div>
+<h2 class="section-title">More than<br>a student.</h2>
+
+<p class="section-intro">
+I learn by building. Most of what I work on starts as an idea,
+turns into a project, breaks a few times, and eventually becomes
+something useful.
+</p>
+</div>
+
+</div>
+
+
+<div class="about-grid">
+
+<div class="about-text">
+
+<p>
+I'm currently pursuing a B.Sc in Computer Science with a focus
+on Cyber Security. Alongside college, I spend my time learning
+programming, building websites, experimenting with servers and
+creating tools for online communities.
+</p>
+
+<p>
+My interests aren't limited to one technology. I work across
+web development, programming, Discord bots, SA-MP roleplay
+systems, hosting concepts and cybersecurity-related learning.
+</p>
+
+<p>
+I'm still learning — and that's part of the process. I prefer
+building real projects and understanding how things work rather
+than collecting technologies just for a résumé.
+</p>
+
+</div>
+
+
+<div class="quick-info">
+
+<div class="info-item">
+<div class="info-label">Currently</div>
+<div class="info-value">B.Sc Computer Science</div>
+</div>
+
+<div class="info-item">
+<div class="info-label">Specialization</div>
+<div class="info-value">Cyber Security</div>
+</div>
+
+<div class="info-item">
+<div class="info-label">Based in</div>
+<div class="info-value">Chennai, Tamil Nadu</div>
+</div>
+
+<div class="info-item">
+<div class="info-label">Focus</div>
+<div class="info-value">Development + Security</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="section-number">02 / EDUCATION</div>
+
+<div>
+<h2 class="section-title">Where I'm<br>learning.</h2>
+
+<p class="section-intro">
+My academic foundation and the direction I'm taking into
+Computer Science and Cyber Security.
+</p>
+</div>
+
+</div>
+
+
+<div class="education">
+
+<div class="education-year">
+2026 — PRESENT
+</div>
+
+<div>
+<h3>B.Sc Computer Science</h3>
+
+<p>
+Cyber Security
+</p>
+
+<p>
+VELS University · Thiruvanmiyur Campus · Chennai
+</p>
+</div>
+
+<div class="education-tag">
+UNDERGRADUATE
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="section-number">03 / PROJECTS</div>
+
+<div>
+<h2 class="section-title">Things I've<br>built.</h2>
+
+<p class="section-intro">
+A collection of projects, experiments and systems I've worked
+on while learning different parts of development.
+</p>
+</div>
+
+</div>
+
+
+<div class="projects">
+
+
+<!-- PROJECT 01 -->
+
+<article class="project">
+
+<div>
+
+<div class="project-top">
+<span class="project-number">01</span>
+<span class="project-arrow">↗</span>
+</div>
+
+<h3>Nova Hosting</h3>
+
+<p>
+A premium SA-MP server hosting concept focused on presenting
+game-server hosting services through a modern web interface.
+</p>
+
+<div class="tags">
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+<span class="tag">Hosting</span>
+</div>
+
+</div>
+
+<a href="#" class="project-link">View project →</a>
+
+</article>
+
+
+<!-- PROJECT 02 -->
+
+<article class="project">
+
+<div>
+
+<div class="project-top">
+<span class="project-number">02</span>
+<span class="project-arrow">↗</span>
+</div>
+
+<h3>BACKUP Discord Bot</h3>
+
+<p>
+A Discord bot built for server management, moderation,
+welcome systems, autoroles, tickets and utility commands.
+</p>
+
+<div class="tags">
+<span class="tag">Node.js</span>
+<span class="tag">Discord.js</span>
+<span class="tag">JavaScript</span>
+<span class="tag">Automation</span>
+</div>
+
+</div>
+
+<a href="#" class="project-link">View project →</a>
+
+</article>
+
+
+<!-- PROJECT 03 -->
+
+<article class="project">
+
+<div>
+
+<div class="project-top">
+<span class="project-number">03</span>
+<span class="project-arrow">↗</span>
+</div>
+
+<h3>GENZ FOOD SHOP</h3>
+
+<p>
+An online food shop concept with authentication, product
+selection, cart functionality and customer information flow.
+</p>
+
+<div class="tags">
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+<span class="tag">Firebase</span>
+</div>
+
+</div>
+
+<a href="#" class="project-link">View project →</a>
+
+</article>
+
+
+<!-- PROJECT 04 -->
+
+<article class="project">
+
+<div>
+
+<div class="project-top">
+<span class="project-number">04</span>
+<span class="project-arrow">↗</span>
+</div>
+
+<h3>Cyber Security Lab</h3>
+
+<p>
+Personal experiments and learning projects focused on
+understanding programming, systems, networking and security.
+</p>
+
+<div class="tags">
+<span class="tag">Cyber Security</span>
+<span class="tag">Networking</span>
+<span class="tag">Linux</span>
+<span class="tag">Programming</span>
+</div>
+
+</div>
+
+<a href="#" class="project-link">More coming →</a>
+
+</article>
+
+
+<!-- PROJECT 05 -->
+
+<article class="project">
+
+<div>
+
+<div class="project-top">
+<span class="project-number">05</span>
+<span class="project-arrow">↗</span>
+</div>
+
+<h3>SA-MP RP Systems</h3>
+
+<p>
+Roleplay server experiments involving Pawn scripting,
+server configuration, Discord integrations and gameplay systems.
+</p>
+
+<div class="tags">
+<span class="tag">Pawn</span>
+<span class="tag">SA-MP</span>
+<span class="tag">Discord</span>
+<span class="tag">RP Systems</span>
+</div>
+
+</div>
+
+<a href="#" class="project-link">View work →</a>
+
+</article>
+
+
+<!-- PROJECT 06 -->
+
+<article class="project">
+
+<div>
+
+<div class="project-top">
+<span class="project-number">06</span>
+<span class="project-arrow">↗</span>
+</div>
+
+<h3>Personal Portfolio</h3>
+
+<p>
+A continuously evolving personal website documenting my
+projects, skills, education and development journey.
+</p>
+
+<div class="tags">
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+<span class="tag">GitHub</span>
+</div>
+
+</div>
+
+<a href="#" class="project-link">You're here →</a>
+
+</article>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="section-number">04 / SKILLS</div>
+
+<div>
+<h2 class="section-title">What I<br>work with.</h2>
+
+<p class="section-intro">
+Technologies I'm learning and using through actual projects.
+I'm more interested in understanding the fundamentals than
+claiming mastery of everything.
+</p>
+</div>
+
+</div>
+
+
+<div class="skill-grid">
+
+<div class="skill">
+<small>LANGUAGE</small>
+<h3>C</h3>
+<p>Learning programming fundamentals, variables, logic and problem solving.</p>
+</div>
+
+<div class="skill">
+<small>LANGUAGE</small>
+<h3>C++</h3>
+<p>Exploring programming concepts and object-oriented development.</p>
+</div>
+
+<div class="skill">
+<small>LANGUAGE</small>
+<h3>Python</h3>
+<p>Learning scripting, automation and general-purpose development.</p>
+</div>
+
+<div class="skill">
+<small>WEB</small>
+<h3>HTML / CSS</h3>
+<p>Building responsive interfaces and personal web projects.</p>
+</div>
+
+<div class="skill">
+<small>WEB</small>
+<h3>JavaScript</h3>
+<p>Adding interaction, logic and functionality to web applications.</p>
+</div>
+
+<div class="skill">
+<small>BACKEND</small>
+<h3>Node.js</h3>
+<p>Used for Discord bot development and server-side experiments.</p>
+</div>
+
+<div class="skill">
+<small>PLATFORM</small>
+<h3>GitHub</h3>
+<p>Managing repositories, publishing projects and maintaining code.</p>
+</div>
+
+<div class="skill">
+<small>COMMUNITY</small>
+<h3>Discord</h3>
+<p>Building bots, moderation systems and server automation.</p>
+</div>
+
+<div class="skill">
+<small>GAME SERVERS</small>
+<h3>SA-MP / Pawn</h3>
+<p>Experimenting with roleplay systems, scripting and server configuration.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- JOURNEY -->
+
+<section id="journey">
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="section-number">05 / JOURNEY</div>
+
+<div>
+<h2 class="section-title">Still<br>building.</h2>
+
+<p class="section-intro">
+This isn't a finished story. It's a timeline of what I'm
+learning and where I'm heading.
+</p>
+</div>
+
+</div>
+
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<div class="timeline-date">EARLIER</div>
+
+<h3>Started with programming</h3>
+
+<p>
+Began exploring programming and computer science concepts,
+including C, C++ and Python.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-date">2025 — 2026</div>
+
+<h3>Started building websites</h3>
+
+<p>
+Moved from learning code to creating actual websites,
+personal projects and online tools.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-date">2026</div>
+
+<h3>Discord & server development</h3>
+
+<p>
+Started building Discord bots and experimenting with
+SA-MP roleplay servers, automation and server systems.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<div class="timeline-date">2026 →</div>
+
+<h3>Cyber Security</h3>
+
+<p>
+Started my B.Sc Computer Science journey with Cyber Security
+as my direction, while continuing to build projects outside
+the classroom.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="contact-box">
+
+<div>
+
+<div class="eyebrow">06 / CONTACT</div>
+
+<h2>Let's build<br>something.</h2>
+
+<p>
+Have a project, idea or collaboration in mind?
+You can find me around the internet.
+</p>
+
+</div>
+
+
+<div class="socials">
+
+<a class="social"
+href="https://github.com/snsuhail19"
+target="_blank">
+GitHub
+</a>
+
+<a class="social"
+href="https://www.linkedin.com/in/mohamed-suhail-1254a1429/"
+target="_blank">
+LinkedIn
+</a>
+
+<a class="social"
+href="https://instagram.com/suhail.s_.19"
+target="_blank">
+Instagram
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container footer-inner">
+
+<span>© 2026 SUHAIL</span>
+
+<span>
+BUILT WITH HTML · CSS · JAVASCRIPT
+</span>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* Smooth mobile navigation */
+
+const menu = document.querySelector(".menu");
+const links = document.querySelector(".nav-links");
+
+menu.addEventListener("click", () => {
+
+    if(links.style.display === "flex"){
+        links.style.display = "none";
+    }else{
+        links.style.display = "flex";
+        links.style.flexDirection = "column";
+        links.style.position = "absolute";
+        links.style.top = "72px";
+        links.style.left = "0";
+        links.style.right = "0";
+        links.style.padding = "25px";
+        links.style.background = "#08090b";
+        links.style.borderBottom = "1px solid #24282e";
+    }
+
+});
+
+</script>
+
 </body>
 </html>
